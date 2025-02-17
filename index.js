@@ -3,7 +3,7 @@ const express = require("express");
 const crypto = require("crypto");
 const bodyParser = require("body-parser");
 const path = require("path");
-// wcsdaxas
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -82,4 +82,4 @@ app.post("/decrypt", (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

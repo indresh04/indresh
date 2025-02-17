@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Encryption & Decryption</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6 flex flex-col items-center">
+
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-xl">
+        <h1 class="text-2xl font-bold text-center mb-4">RSA Encryption & Decryption</h1>
+
+        <!-- Encryption Form -->
+        <form action="/encrypt" method="POST" class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-2">Enter text to Encrypt:</label>
+            <textarea name="data" required class="w-full border border-gray-300 p-2 rounded-lg" rows="3"></textarea>
+            <button type="submit" class="mt-2 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                Encrypt
+            </button>
+        </form>
+
+        <!-- Encrypted Data Display -->
+        <% if (encryptedData) { %>
+            <div class="bg-gray-200 p-4 rounded-lg">
+                <p class="font-semibold">Encrypted Data:</p>
+                <textarea class="w-full p-2 bg-gray-100 rounded-lg" readonly><%= encryptedData %></textarea>
+            </div>
+        <% } %>
+
+        <!-- Decryption Form -->
+        <form action="/decrypt" method="POST" class="mt-4">
+            <label class="block text-gray-700 font-semibold mb-2">Enter Encrypted Data:</label>
+            <textarea name="encryptedData" required class="w-full border border-gray-300 p-2 rounded-lg" rows="3"></textarea>
+            <button type="submit" class="mt-2 w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">
+                Decrypt
+            </button>
+        </form>
+
+        <!-- Decrypted Data Display -->
+        <% if (decryptedData) { %>
+            <div class="bg-gray-200 p-4 mt-4 rounded-lg">
+                <p class="font-semibold">Decrypted Data:</p>
+                <textarea class="w-full p-2 bg-gray-100 rounded-lg" readonly><%= decryptedData %></textarea>
+            </div>
+        <% } %>
+
+        <!-- Error Message -->
+        <% if (error) { %>
+            <div class="bg-red-200 p-4 mt-4 rounded-lg text-red-800 font-semibold">
+                Error: <%= error %>
+            </div>
+        <% } %>
+    </div>
+
+</body>
+</html>
